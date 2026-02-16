@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <style >
+        #tab {
+            list-style: none;
+            font-style: italic;
+            border:3px solid darkblue;
+            border-collapse: collapse;
+            text-align: center;
+            padding:10px;
+            margin: 10px;
+            width: 300px;
+
+        }
+        #tab1 {
+            list-style: none;
+            font-style: italic;
+            border:3px solid rosybrown;
+            border-collapse: collapse;
+            padding:20px;
+            text-align: center;
+            margin: 10px;
+            width: 300px;
+
+        }
+      </style>
+    </head>
+    <body>
+       <table id="tab" Border="1">
+        <tr>
+          <td id="name" onclick="fun1()">name</td>
+          <td id="gender" onclick="fun2()">gender</td>
+          <td id="place" onclick="fun3()">Place</td>
+        </tr>
+       </table>
+       <table id="tab1" Border="1">
+        <tr>
+          <td>name</td>
+          <td>gender</td>
+          <td>Place</td>
+        </tr>
+       </table>
+        <script>
+          var students = [
+
+                                {
+
+                                name:'jaya',
+
+                                gender:'female',
+
+                                place:'gachibowli',
+
+                                },
+
+                                
+
+                                {
+
+                                name:'swati',
+
+                                gender:'female',
+
+                                place:'pune'
+
+                                },
+
+                                {
+
+                                name:'pallavi',
+
+                                gender:'female',
+
+                                place:'assam'
+
+                                },
+                                {
+
+                                name:'thirumala',
+
+                                gender:'male',
+
+                                place:'madhapur'
+
+                                },
+
+                                {
+
+                                name:'priya',
+
+                                gender:'female',
+
+                                place:'hitech'
+
+                                },
+
+                                {
+
+                                name:'kiran',
+
+                                gender:'male',
+
+                                place:'kondapur'
+
+                                },
+                                {
+
+                                name:'dasu',
+
+                                gender:'male',
+
+                                place:'kphb'
+
+                                }
+
+                                
+
+                            ]
+
+ 
+
+
+
+for(var i=0;i<=students.length-1 ;i++)
+{
+
+var table_data=document.getElementById("tab") 
+if(students[i].gender=='male'){
+  var male=[]
+male.push(students[i])
+console.log(male)
+  var row_data=document.createElement("tr")
+  var col_data1=document.createElement("td")
+  var col_data2=document.createElement("td")
+  var col_data3=document.createElement("td")
+  col_data1.innerText=students[i].name
+  console.log(col_data1)
+  col_data2.innerText=students[i].gender
+  col_data3.innerText=students[i].place
+  row_data.appendChild(col_data1)
+  row_data.appendChild(col_data2)
+  row_data.appendChild(col_data3)
+  table_data.appendChild(row_data)
+}
+else{
+  var female=[]
+  female.push(students[i])
+
+    var table_data1=document.getElementById("tab1")
+  var row_data1=document.createElement("tr")
+  var col_data4=document.createElement("td")
+  var col_data5=document.createElement("td")
+  var col_data6=document.createElement("td")
+  col_data4.innerText=students[i].name
+  col_data5.innerText=students[i].gender
+  col_data6.innerText=students[i].place
+  row_data1.appendChild(col_data4)
+  row_data1.appendChild(col_data5)
+  row_data1.appendChild(col_data6)
+  table_data1.appendChild(row_data1)
+}
+}
+console.log(male)
+function fun1(){
+male.sort((a,b)=>a.name.localeCompare(b.name));
+}
+
+
+</script>
+    </body>
+
+</html>

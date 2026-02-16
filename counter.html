@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+</head>
+<body>
+    <h1 id="h1">counter:</h1>
+    <button onclick="inc()">increment</button>
+    <button onclick="de()">decrement</button>
+    <script>
+        var x=0;
+        console.log(x)
+        function inc(){
+            x++;
+            console.log(x)
+            var y=document.getElementById("h1").innerHTML="counter:"+x;
+            console.log(y)
+               }
+        function de(){
+            x--;
+            console.log(x)
+            var z=document.getElementById("h1").innerHTML="counter:"+x;
+            console.log(z)
+               }       
+    </script>
+</body>
+</html>

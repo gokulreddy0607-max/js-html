@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+</head>
+
+<body>
+    <form name="sform" onsubmit="handleSubmit(event)">
+        Full Name:
+        <br>
+        <input type="text" id="name">
+        <br><br>
+
+        Gender:
+        <br>
+        <input type="radio" name="gender" value="F" id="female">
+        <label for="female">Female</label>
+
+        <input type="radio" name="gender" value="M" id="male">
+        <label for="male">Male</label>
+
+        <input type="radio" name="gender" value="O" id="others">
+        <label for="others">Others</label>
+        <br><br>
+
+        Technology:
+        <br>
+        <input type="checkbox" name="technology" value="js"> JavaScript
+        <input type="checkbox" name="technology" value="rjs"> ReactJS
+        <input type="checkbox" name="technology" value="ajs"> Angular
+        <input type="checkbox" name="technology" value="njs"> NodeJS
+        <br><br>
+
+        Address:
+        <br>
+        <textarea id="textareas"></textarea>
+        <br><br>
+
+        <button type="submit">Show Student</button>
+
+    </form>
+    <table id="table1">
+        <tr>
+            <td> name</td>
+            <td>gender</td>
+            <td>skills</td>
+            <td>address</td>
+        </tr>
+    </table>
+
+
+    <script>
+    let table = [];
+    var o = 0;
+
+    function handleSubmit(ev) {
+        ev.preventDefault();
+
+        let newStudent = {
+            fullname: document.getElementById("name").value,
+            gender: "",
+            technologies: [],
+            address: document.getElementById("textareas").value
+        };
+
+        // Gender
+        document.sform.gender.forEach(function (el) {
+            if (el.checked) {
+                newStudent.gender = el.value;
+            }
+        });
+
+        // Technologies
+        document.sform.technology.forEach(function (el) {
+            if (el.checked) {
+                newStudent.technologies.push(el.value);
+            }
+        });
+
+        table.push(newStudent);
+        var skills = table[o].technologies.join(", ");
+        var crtab = document.getElementById("table1");
+        var crtr = document.createElement("tr");
+
+        var crtd = document.createElement("td");
+        var crtd1 = document.createElement("td");
+        var crtd2 = document.createElement("td");
+        var crtd3 = document.createElement("td");
+
+        crtd.innerHTML = table[o].fullname;
+        crtd1.innerHTML = table[o].gender;
+        crtd2.innerHTML = skills;
+        crtd3.innerHTML = table[o].address;
+
+        crtr.appendChild(crtd);
+        crtr.appendChild(crtd1);
+        crtr.appendChild(crtd2);
+        crtr.appendChild(crtd3);
+
+        crtab.appendChild(crtr);
+
+        o++;
+        document.sform.reset();
+    }
+</script>
+
+</body>
+
+</html>

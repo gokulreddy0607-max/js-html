@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <style>
+        .imgshow{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid black;
+            width: fit-content;
+            height: auto;
+            margin:25px ;
+        }
+        .box button{
+            width: 60px;
+            height: 25px;
+            border-radius: 5px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            margin: 5px;
+        }
+        #container{
+            grid-template-columns: repeat(5, 1fr);
+            min-width: 350px;
+            display: grid;
+            justify-items: center;
+            grid-row: auto;
+        }
+
+        #myform{
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            padding: 20px;
+            border-radius: 8px;
+            border: 3px solid black;
+            margin-top: 40px;
+        }
+        .form-container{
+            border: 4px solid black;
+            position: absolute;
+            width: 400px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 400px;
+            left: 50%;
+            transform: translate(-50%,-0%);
+        }
+        .form-container button{
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            margin-left: 70px;
+        }
+        .form-container input{
+            border: none;
+            border-bottom: 2px solid black;
+        }
+        input:focus{
+            outline: none;
+            border-bottom: 2px solid blue;
+        }
+        .search-container{
+            position: absolute;
+            top: 450px;
+            right: 650px;
+        }
+        .search-container button{
+            width: 30px;
+            position: relative;
+            left: 40px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            margin-left: 10px;
+        }
+        .search-container input[type="search"]{
+            width: 200px;
+            position: relative;
+            left: 40px;
+            height: 25px;
+            border-radius: 5px;
+            border: 2px solid black;
+            padding-left: 10px;
+        }
+        #container{
+           position: absolute;
+           top: 600px;
+           margin-left: 100px;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Contacts</h1>
+   <div class="form-container">
+     <form action="" name="myform" id="myform" onsubmit="return false;">
+        Name:
+        <input type="text"placeholder="Enter Your Name" required name="name">
+        <br>
+        Number:
+        <input type="text"placeholder="Enter your number" name="number" id="number"  maxlength="10">
+        <br>
+        Email:
+        <input type="email" placeholder="Enter Your Email" name="email">
+        <br>
+        Image:
+        <input type="file" id="fileInput" accept="image/*">
+    <br><br>
+    <button onclick="showImage()">Save Contact</button>
+    </form>
+   </div>
+   <div class="search-container">
+     <input type="search" name="search" id="search" placeholder="Search Contact" onkeyup="search(event)">
+    <button id="asc" onclick="ascend()">A</button>
+    <button id="dsc" onclick="descend()">D</button>
+   </div>
+<br>
+    <div id="container"></div>
+
+    <script>
+        const data =[];
+        function showImage() {
+            var greenflag = true;
+            const fileInput = document.getElementById("fileInput");
+            const file = fileInput.files[0];
+            const name = document.myform.name.value;
+            const number = document.myform.number.value;
+            if(number.length!==10 || isNaN(number)){
+                alert("Please enter a valid 10-digit number");
+                greenflag = false;
+            }
+            
+            const email = document.myform.email.value;
+           
+            const url = URL.createObjectURL(file);
+            
+            data.find(function(item){
+                if(item.number===number || item.email===email|| item.name===name || item.image===url){
+                    alert("Contact already exists!");
+                    greenflag = false;
+                    return;
+                }                                                                                                                                                                                                                                               
+            });                                                        
+            if(greenflag==false){
+                return;
+            }
+             document.myform.reset();
+            
+           
+            data.push({
+        name: name,
+        number: number,
+        email: email,
+        image: url
+    });
+    console.log(data);
+        render();
+            
+        }
+
+
+        function ascend()
+        {
+            data.sort((a, b) => {
+        return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+    });
+    render();
+
+            
+        }
+        function descend()
+        {
+            data.sort((a, b) => {
+        return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+    });
+    render();
+        }
+
+
+
+
+
+
+        function render()
+        { 
+            container.innerHTML="";
+            
+             data.forEach((item,index)=>{
+                 const box = document.createElement("div");
+             const img = document.createElement("img");
+                img.src = item.image;
+                img.classList.add('imgshow');
+                box.appendChild(img);
+                box.innerHTML+=`<h3>Name :${item.name}</h3><h3>Number :${item.number}</h3><h3>Email :${item.email}</h3><button onclick="editContact(${index})">Edit</button><button onclick="deleteContact(${index})">Delete</button>`;
+                box.classList.add('box');
+                container.appendChild(box);
+             })  
+        }
+        function deleteContact(index)
+        {
+            data.splice(index, 1);
+                render();
+
+        }
+        function editContact(index){
+                const item = data[index];
+                document.myform.name.value = item.name;
+                document.myform.number.value = item.number;
+                document.myform.email.value = item.email;
+                data.splice(index, 1);
+                render();
+             }
+        function search(event)
+        {
+            const searchValue = event.target.value.toLowerCase();
+            const filteredData = data.filter((item)=>{
+                return item.name.toLowerCase().includes(searchValue) || item.number.includes(searchValue) || item.email.toLowerCase().includes(searchValue);
+            });
+            container.innerHTML="";
+            filteredData.forEach((item,index)=>{
+                 const box = document.createElement("div");
+             const img = document.createElement("img");
+                img.src = item.image;
+                img.classList.add('imgshow');
+                box.appendChild(img);
+                box.innerHTML+=`<h3>Name :${item.name}</h3><h3>Number :${item.number}</h3><h3>Email :${item.email}</h3><button onclick="editContact(${index})">Edit</button><button onclick="deleteContact(${index})">Delete</button>`;
+                box.classList.add('box');
+                container.appendChild(box);
+             })
+        }
+    </script>
+
+</body>
+</html>

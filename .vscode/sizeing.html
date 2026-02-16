@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forma Landing</title>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        *{
+            font-family: "Montserrat", sans-serif;
+        }
+
+
+        #nav{
+            width:100%;
+            height:5em;
+            display:flex;
+            justify-content:space-around;
+            align-items:center;
+            background:brown;
+           
+        }
+
+        #forma{
+            width:10%;
+            text-align:center;
+            color:#60a5fa;
+        }
+
+        #nav_ul{
+            width:50%;
+        }
+
+        #nav_ul ul li{
+            font-size:1.1em;
+            padding:0.75em;
+            display:inline-block;
+            color:#d1d5db;
+            transition:.3s;
+        }
+
+        #nav_ul ul li:hover{
+            color:#60a5fa;
+            cursor:pointer;
+        }
+
+        #get_logo{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+
+        #get_logo button{
+            background:blueviolet;
+            color:rgb(200, 102, 102);
+            border:none;
+            width:8.5em;
+            height:2.5rem;
+            border-radius:.6em;
+            font-weight:600;
+            transition:.3s;
+        }
+
+        #get_logo button:hover{
+            transform:translateY(-2px);
+        
+        }
+
+       
+        #body1{
+            width:100%;
+            height:40em;
+            display:flex;
+            justify-content:space-evenly;
+            align-items:center;
+
+            background:
+                radial-gradient(circle at top left,#1e3a8a 0%, transparent 40%),
+                radial-gradient(circle at bottom right,#0ea5e9 0%, transparent 40%),
+                #020617;
+        }
+
+        #new_feature_launch{
+            width:50%;
+        }
+
+        #text{
+            display:inline-block;
+            padding:.5em 1em;
+            border-radius:1em;
+            background:rgba(59,130,246,.15);
+            font-size:.85em;
+        }
+
+        #text b{
+            color:#60a5fa;
+        }
+
+        #new_feature_launch h1{
+            font-size:3.5em;
+            margin-top:.5em;
+            color:white;
+        }
+
+        #new_feature_launch p{
+            margin-top:1em;
+            line-height:1.6em;
+            color:#cbd5e1;
+        }
+
+    
+        #button1{
+            padding:.8em 1.8em;
+            margin-top:2em;
+            border:none;
+            border-radius:.6em;
+            color:rgb(149, 52, 182);
+            font-weight:600;
+            transition:.3s;
+        }
+
+        #button1:hover{
+            transform:translateY(-2px);
+        
+        }
+
+        #button2{
+            padding:.8em 1.8em;
+            margin-left:.6em;
+            border-radius:.6em;
+            background:rgba(255,255,255,.08);
+            color:white;
+            transition:.3s;
+        }
+
+        #button2:hover{
+            background:rgba(255,255,255,.15);
+        }
+
+        
+        #picture{
+            width:30%;
+            height:27.5em;
+            position:relative;
+        }
+
+        #picture img{
+            width:90%;
+            height:90%;
+            border-radius:1em;
+            
+        }
+       @media screen and(min-width: 1750px)
+       {
+        #nav_ul{
+          display: none;
+       } 
+    }
+
+        
+        #picture_icons,
+        #picture_icons2,
+        #picture_icons3{
+            display:flex;
+            position:absolute;
+            padding:1em 1.25em;
+            border-radius:.9em;
+            background:rgba(255,255,255,.08);
+            backdrop-filter:blur(18px);
+            border:1px solid rgba(255,255,255,.15);
+            
+        }
+
+        #picture_icons{ top:5em; left:-3em; }
+        #picture_icons2{ top:20em; left:-3em; }
+        #picture_icons3{ top:15em; right:0em; }
+
+        #picture_icons #svg{ color:#22c55e; }
+        #picture_icons2 #svg{ color:#f59e0b; }
+        #picture_icons3 #svg{ color:#3b82f6; }
+
+        #growth_icon_text b{ color:white; }
+        #growth_icon_text p{ color:#cbd5e1; font-size:.75em; }
+
+        .floating_icons{
+            animation:san 5s ease-in-out infinite;
+        }
+
+        @keyframes san{
+            0%{ transform:translateY(0); }
+            50%{ transform:translateY(-12px); }
+            100%{ transform:translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    
+    <div id="nav">
+        <div id="forma">
+            <h1>infra</h1>
+        </div>
+
+        <div id="nav_ul">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Help</li>
+                <li>About</li>
+                <li>Teams</li>
+                <li>Pricing</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+
+        <div id="get_logo">
+            <button>Get Started</button>
+        </div>
+    </div>
+
+
+    <!-- ================= HERO ================= -->
+    <div id="body1">
+
+        <div id="new_feature_launch">
+
+            <div id="text">
+                <b> AI Powered Platform</b>
+            </div>
+
+            <h1>Build Faster. Work Smarter. Grow Limitlessly.</h1>
+
+            <p>
+                Forma enables modern teams to automate tasks, collaborate
+                seamlessly, and make smarter decisions using real-time insights.
+                Increase productivity, reduce costs, and scale your business —
+                all from one powerful dashboard.
+            </p>
+
+            <button id="button1">
+                <b>
+                    Get Started Free
+                    <span class="material-symbols-outlined">arrow_right_alt</span>
+                </b>
+            </button>
+
+            <button id="button2">
+                <b>
+                    View Live Demo
+                    <span class="material-symbols-outlined">play_circle</span>
+                </b>
+            </button>
+        </div>
+        <div id="picture">
+
+            <img src="https://bootstrapmade.com/content/demo/Forma/assets/img/misc/misc-17.webp" alt="dashboard">
+
+            <div id="picture_icons" class="floating_icons">
+                <div id="growth_icon">
+                    <i id="svg" class="bi bi-graph-up"></i>
+                </div>
+                <div id="growth_icon_text">
+                    <b>+180%</b>
+                    <p>Performance Boost</p>
+                </div>
+            </div>
+
+            <div id="picture_icons2" class="floating_icons">
+                <div id="growth_icon">
+                    <i id="svg" class="bi bi-clock"></i>
+                </div>
+                <div id="growth_icon_text">
+                    <b>5K+</b>
+                    <p>Daily Users</p>
+                </div>
+            </div>
+
+            <div id="picture_icons3" class="floating_icons">
+                <div id="growth_icon">
+                    <i id="svg" class="bi bi-people"></i>
+                </div>
+                <div id="growth_icon_text">
+                    <b>60%</b>
+                    <p>Time Saved</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
