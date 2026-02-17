@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+   <input id="sInput" type="text" placeholder="Search...">
+   <button id="btn">save</button>
+   <ul id="sList"></ul>
+
+   <script>
+        var todo = JSON.parse(localStorage.getItem("search"));
+             genli();
+
+       document.getElementById("btn").addEventListener("click", function () {
+
+           var value = document.getElementById("sInput").value;
+
+              todo.push(value);
+
+              localStorage.setItem("search", JSON.stringify(todo));
+ 
+           document.getElementById("sInput").value = "";
+
+           genli();
+       });
+
+       function genli() {
+           var list = document.getElementById("sList");
+              list.innerHTML = "";
+
+           for (let i = 0; i < todo.length; i++) {
+             var li = document.createElement("li");
+                var de=document.createElement("button");
+           de.innerText="delete";
+               li.innerText = todo[i];
+               li.appendChild(de);
+                de.addEventListener("click", function() {
+                       todo.splice(i, 1);
+                       genli();
+                   });
+    
+               list.appendChild(li);
+           }
+       }
+   </script>
+</body>
+</html>
