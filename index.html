@@ -1,1 +1,242 @@
-<h1>hello<h1> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+
+:root {
+    --primary: #2563eb;
+    --dark: #111827;
+    --light: #f3f4f6;
+    --gray: #6b7280;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    background: white;
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+}
+
+nav h2 {
+    color: var(--primary);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+}
+
+.hero-text span {
+    color: var(--primary);
+}
+
+.hero-text p {
+    margin: 20px 0;
+    color: var(--gray);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.hero img {
+    width: 280px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+/* Section */
+section {
+    padding: 70px 10%;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Skills */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.skill-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Projects */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+}
+
+/* Contact */
+.contact {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    margin-top: 40px;
+    font-size: 14px;
+    color: var(--gray);
+}
+
+@media(max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+    <h2>Gokulreddy</h2>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="about">
+    <div class="hero-text">
+        <h1>Hello, I'm <span>Gokulreddy</span></h1>
+        <p>Web Developer | Backend Developer | Android Developer | Student</p>
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="resume.pdf" class="btn btn-outline">Download Resume</a>
+    </div>
+    <img src="photo_202.jpg" alt="Profile Photo" width="280">
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+        <div class="skill-card">HTML</div>
+        <div class="skill-card">CSS</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">React</div>
+        <div class="skill-card">Python</div>
+        <div class="skill-card">Git</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+        <div class="project-card">
+            <h3>servizo</h3>
+            <p>app which is used to workers to find there work by online</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="project-card">
+            <h3>toTirupati</h3>
+            <p>App which is used to find the best places to visit in Tirupati</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="project-card">
+            <h3>forTirupati</h3>
+            <p>App which is used to publish there places like rooms,hotels,etc.</p>
+            <a href="#" class="btn">View</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: gokulreddy0607@gmail.com</p>
+    <p>LinkedIn: linkedin.com/in/gokulreddy</p>
+</section>
+
+<footer>
+    © 2026 Gokulreddy. All rights reserved.
+</footer>
+
+</body>
+</html>
